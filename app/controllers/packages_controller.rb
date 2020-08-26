@@ -4,7 +4,8 @@ class PackagesController < ApplicationController
   # GET /packages
   # GET /packages.json
   def index
-    @packages = Package.all
+    @packages = Package.where(["name LIKE ?","%#{params[:search]}%"])
+
   end
 
   # GET /packages/1
